@@ -134,9 +134,9 @@ def sort_tasks_by_priority(tasks):
 def sort_tasks_by_date(tasks): #sort task by date
     clear_screen()
     try:
-        tasks.sort(key=lambda task: datetime.datetime.strptime(task["deadline"], "%d/%m/%Y")) 
+        sorted_tasks = sorted(tasks, key=lambda task: datetime.datetime.strptime(task["deadline"], "%d/%m/%Y"))
         print("\nTasks sorted by date:")
-        show_tasks(tasks)
+        show_tasks(sorted_tasks)
     except ValueError:
         print("Error: One or more tasks have an invalid date format.")
  
